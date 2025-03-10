@@ -1,0 +1,26 @@
+QComboBox {
+    background-color: qlineargradient(y1: 0, y2: 1, stop: 0.35 rgb(80, 80, 80), stop: 0.65 rgb(45, 45, 45), stop: 1 rgb(60, 60, 60));
+    border-width: 1px;
+    border-style: outset;
+    border-color: rgb(25, 25, 25);
+    border-radius: 14px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-family: Verdana;
+    padding-left: 12px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: rgb(80, 80, 80);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(25, 25, 25);
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-family: Verdana;
+}
+
+QComboBox::drop-down{
+    width: 0px;
+}

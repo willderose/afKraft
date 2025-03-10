@@ -1,0 +1,14 @@
+QMainWindow#afCraftWindow{
+    background-color: qlineargradient(y1: 0, y2: 1, stop: 0 rgb(85,85, 85), stop: 0.03 rgb(38, 38, 38));
+    border: 3px ridge rgb(159, 136, 91);
+    border-radius: 12px;
+}
+
+QLabel#afCraftTitle {
+    color: rgb(240, 240, 240);
+    margin-left: 8px;
+    margin-top: 4px;
+    padding-bottom: 4px;
+    font-size: 38px;
+    font-family: Trump Gothic Pro;
+}

@@ -1,0 +1,43 @@
+QFrame#fProgressTitle{
+    border-style: none;
+    border-bottom: 4px groove rgb(30, 30, 30);
+}
+
+QWidget#wProgressTime {
+    background-color: rgb(25, 25, 25);
+    border-bottom-left-radius: 12px;
+}
+
+
+QLabel {
+    color: rgb(240, 240, 240);
+    font-family: Verdana;
+}
+
+QLabel#labProgressTitle{
+    font-size: 24px;
+}
+
+QLabel#labProgressCount{
+    font-size: 20px;
+}
+
+QLabel#labRemainingTime{
+    color: rgb(107, 191, 233);
+    font-size: 20px;
+}
+
+QProgressBar{
+    border: 2px inset rgb(10, 10, 10);
+    border-radius: 9px;
+    background-color: rgb(85, 85, 85);
+}
+
+QProgressBar::chunk{
+    background-color: qlineargradient(x1: 0, x2: 1, stop: 0 rgb(190, 103, 10), stop: 1 rgb(246, 219, 10));
+    border: 2px solid rgb(217, 206, 166);
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}

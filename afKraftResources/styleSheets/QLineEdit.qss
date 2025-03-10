@@ -1,0 +1,9 @@
+QLineEdit{
+    background-color: rgb(71, 71, 71);
+    border: 2px inset rgb(60, 60, 60);
+    border-radius: 6px;
+    color: rgb(230, 230, 230);
+    padding-left: 3px;
+    font-size: 14px;
+    font-family: Verdana;
+}

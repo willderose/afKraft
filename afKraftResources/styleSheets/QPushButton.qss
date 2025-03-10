@@ -1,0 +1,29 @@
+QPushButton {
+    background-color: qlineargradient(y1: 0, y2: 1, stop: 0.35 rgb(80, 80, 80), stop: 0.65 rgb(45, 45, 45), stop: 1 rgb(60, 60, 60));
+    border-width: 1px;
+    border-style: outset;
+    border-color: rgb(25, 25, 25);
+    border-radius: 14px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-family: Verdana;
+}
+
+QPushButton#synthButtonLocator {
+    border-radius: 24px;
+    font-size: 16px;
+}
+
+QPushButton::pressed {
+    background-color: qlineargradient(y1: 0, y2: 1, stop: 0.55 rgb(90, 90, 90), stop: 0.88 rgb(55, 55, 55), stop: 1 rgb(70, 70, 70));
+    margin-top: 2px;
+    margin-bottom: -2px;
+}
+
+QPushButton#pbLaunchCommand{
+    background-color: qlineargradient(y1: 0, y2: 1, stop: 0.35 rgb(255, 210, 122), stop: 0.65 rgb(114, 96, 57), stop: 1 rgb(139, 112, 73));
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+
+QPushButton#pb
