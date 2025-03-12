@@ -8,3 +8,4 @@ A couple of dependencies need to be installed for it to properly work, if you wi
 - PySide (any version _should_ do, but this project was built with PySide6)
 - pyautogui
 
+Still very much a WIP, so broken functionalities are to be expected. A first release and its doc should be soon<sup>(tm)</sup>
