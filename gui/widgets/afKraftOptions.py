@@ -2,22 +2,24 @@
 # Created by willderose                                      #
 # -----------------------------------------------------------#
 
-from gui.widgets import afKraftSection
-from gui.widgets import mousePosPicker
-from gui.widgets import afKraftSpinBox
+from gui.utilityWidgets import afKraftSpinBox, mousePosPicker, afKraftSection
 
 
-class GlobalOptions(afKraftSection.AfKraftSection):
+class AfKraftOptions(afKraftSection.AfKraftSection):
+    """ Option container for AfKraft
+    """
+
     def _setupAppearance(self):
         """ Visually customize this widget and it's subwidgets
         """
         super()._setupAppearance()
 
-        self.synthButtonLocator.setMinimumHeight(48)
+        self.synthButtonLocator.setFixedHeight(48)
 
-        self.setTitle('Global Options')
+        self.setTitle('Options')
 
-        self.delayOptions.setTitle('Startup delay, in milliseconds:')
+        self.delayOptions.setTitle('Startup delay (ms):')
+        self.delayOptions.spbValue.setSingleStep(100)
 
     def _setupUi(self):
         """ Create and lay out this widget's subwidgets
