@@ -6,10 +6,8 @@ from PySide6 import QtWidgets
 from PySide6 import QtCore
 
 import afKraftResources
-from gui.widgets import afKraftSection
-from gui.widgets import commandContainer
-from gui.widgets import craftWidget
-from gui.widgets import singleCommandOptions
+from gui.utilityWidgets import commandContainer, afKraftSection, genericInputOptions
+from gui.queueWidgets import craftWidget
 
 
 class CommandQueue(afKraftSection.AfKraftSection):
@@ -117,7 +115,7 @@ class CommandQueue(afKraftSection.AfKraftSection):
 
         newCommandWidget = commandContainer.CommandContainer(commandType)
         newCommandWidget.addWidget(commandWidget)
-        newCommandWidget.removeCommand.connect(self.onCommandRemoved)
+        newCommandWidget.commandRemoved.connect(self.onCommandRemoved)
 
         self.vBoxCommandQueue.insertWidget(len(self.commandQueueWidgets), newCommandWidget)
         self.commandQueueWidgets.append(commandWidget)
@@ -136,14 +134,21 @@ class CommandQueue(afKraftSection.AfKraftSection):
         """
 
         self.addCommandToQueue(
-            commandWidget=singleCommandOptions.SingleCommandOptions(keybindTarget='Generic', parent=self),
-            commandType='Keypress'
+            commandWidget=genericInputOptions.GenericInputOptions(parent=self),
+            commandType='New Generic Input'
         )
 
     def runCommandQueue(self):
         """ Run the commands that a user has queued
         """
 
-        for queuedCommand in self.commandQueueWidgets:
-            queuedCommand.synthButtonPos = self.synthButtonPos
-            queuedCommand.runCommand()
+        # Create the chain of commands that will be executed
+        for queuedCommandWidget in self.commandQueueWidgets:
+            queuedCommandWidget.synthButtonPos = self.synthButtonPos
+            widgetQueueIndex = self.commandQueueWidgets.index(queuedCommandWidget)
+            nextCommandIndex = widgetQueueIndex + 1
+            if nextCommandIndex == len(self.commandQueueWidgets):
+                break
+            queuedCommandWidget.commandFinished.connect(self.commandQueueWidgets[nextCommandIndex].runCommand)
+
+        self.commandQueueWidgets[0].runCommand()
