@@ -12,3 +12,8 @@ QLabel#afCraftTitle {
     font-size: 38px;
     font-family: Trump Gothic Pro;
 }
+
+QWidget{
+    font-family: Verdana;
+    font-size: 14px;
+}

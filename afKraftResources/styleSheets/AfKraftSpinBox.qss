@@ -3,7 +3,6 @@ QSpinBox#spbValue{
     background-color: rgb(67, 70, 67);
     border: 2px inset rgb(45, 45, 45);
     border-radius: 4px;
-    font-size: 14px;
 }
 
 QPushButton{

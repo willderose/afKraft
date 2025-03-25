@@ -3,18 +3,16 @@ QWidget#commandContainer {
     border: 2px inset rgb(42, 42, 42);
     border-radius: 6px;
     margin-right: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 QLabel#containerLabel {
     color: rgb(200, 200, 200);
-    margin-left: 4px;
     margin-top: 4px;
-    font-size: 14px;
-    font-family: Verdana;
 }
 
 QPushButton#pbRemove {
     color: rgb(200, 200, 200);
-    font-size: 14px;
     font-weight: bold;
 }

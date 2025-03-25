@@ -1,6 +1,4 @@
 QGroupBox::title {
     color: rgb(200, 200, 200);
-    font-size: 14px;
-    font-family: Verdana;
     padding-right: 6px;
 }
