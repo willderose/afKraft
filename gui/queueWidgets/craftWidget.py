@@ -5,10 +5,9 @@
 from PySide6 import QtCore
 from PySide6 import QtWidgets
 
-import afKraftCommands
-from gui.widgets import afKraftSpinBox
-from gui.widgets import macroListOptions
-from gui.widgets import craftProgBar
+import core.inputTypes
+from gui.utilityWidgets import afKraftSpinBox
+from gui.queueWidgets import macroListOptions, craftProgBar
 
 import afKraftResources
 
@@ -17,7 +16,7 @@ class CraftWidget(QtWidgets.QStackedWidget):
     """ Contains the various widgets for a specific craft
     """
 
-    craftFinished = QtCore.Signal()
+    commandFinished = QtCore.Signal()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -33,9 +32,9 @@ class CraftWidget(QtWidgets.QStackedWidget):
         self._setupConnections()
         self._setupAppearance()
 
-        self.wCraftProgress.setCraftingData('Moqueca HQ', 150, 3600)
-        self.wCraftProgress.setProgress(75)
-        self.setCurrentIndex(1)
+        # self.wCraftProgress.setCraftingData('Moqueca HQ', 150, 3600)
+        # self.wCraftProgress.setProgress(75)
+        # self.setCurrentIndex(1)
 
     def _setupAppearance(self):
         """ Visually customize this widget and it's subwidgets
@@ -59,8 +58,8 @@ class CraftWidget(QtWidgets.QStackedWidget):
         self.wCraftProgress.craftPaused.connect(self.onCraftPaused)
         self.wCraftProgress.craftCanceled.connect(self.onCraftCanceled)
 
+        self.macroListWidget.commandFinished.connect(self.finishCraft)
         self.macroListWidget.commandFinished.connect(self.runCommand)
-        self.macroListWidget.commandFinished.connect(self.updateProgress)
 
     def _setupUi(self):
         """ Create and lay out this widget's subwidgets
@@ -98,6 +97,13 @@ class CraftWidget(QtWidgets.QStackedWidget):
 
         return self.spbCraftAmount.spbValue.value()
 
+    def finishCraft(self):
+        """ Method triggered at the end of a macro chain
+        """
+
+        self.finishedCrafts += 1
+        self.updateProgress()
+
     def runCommand(self):
         """ Run the attached macros for the amount of desired crafts, displaying the progress bar
         """
@@ -107,7 +113,7 @@ class CraftWidget(QtWidgets.QStackedWidget):
             return
 
         if self.finishedCrafts == self.craftAmount():
-            self.craftFinished.emit()
+            self.commandFinished.emit()
             return
 
         self.wCraftProgress.setCraftingData(
@@ -117,10 +123,9 @@ class CraftWidget(QtWidgets.QStackedWidget):
         )
 
         self.setCurrentIndex(1)
-        afKraftCommands.moveMouseToSynthButton(self.synthButtonPos)
-        afKraftCommands.mouseClick()
+        core.inputTypes.moveMouseToSynthButton(self.synthButtonPos)
+        core.inputTypes.mouseClick()
         self.macroListWidget.runMacros()
-        self.finishedCrafts += 1
 
     def totalCraftTime(self):
         """ Calculate the total time for this macro combos
@@ -161,4 +166,5 @@ class CraftWidget(QtWidgets.QStackedWidget):
             qTimer.stop()
 
         self.finishedCrafts = 0
+        self.updateProgress()
         self.setCurrentIndex(0)

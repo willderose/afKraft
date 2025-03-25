@@ -37,7 +37,7 @@ class KeybindSelector(QtWidgets.QKeySequenceEdit):
 
         self.liEdMacroKeybind.setPlaceholderText(self.DEFAULT_TEXT.format(self._keybindTarget))
         self.liEdMacroKeybind.setStyleSheet(afKraftResources.getStyleForWidget(self.liEdMacroKeybind))
-        self.liEdMacroKeybind.setFixedHeight(26)
+        self.liEdMacroKeybind.setFixedHeight(30)
 
     def _setupConnections(self):
         """ Connect this widget and its subwidgets' signals to their slots

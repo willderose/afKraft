@@ -79,7 +79,7 @@ class AfKraftSpinBox(QtWidgets.QWidget):
         """ Adds 1 to the value of our spinbox
         """
 
-        self.spbValue.setValue(self.spbValue.value() + 1)
+        self.spbValue.setValue(self.spbValue.value() + self.spbValue.singleStep())
 
         self.pbSubtract.setEnabled(True)
 
@@ -88,7 +88,7 @@ class AfKraftSpinBox(QtWidgets.QWidget):
         """ Remove 1 from the value of our spinbox
         """
 
-        self.spbValue.setValue(self.spbValue.value() - 1)
+        self.spbValue.setValue(self.spbValue.value() - self.spbValue.singleStep())
 
         if self.spbValue.value() == self.spbValue.minimum():
             self.pbSubtract.setEnabled(False)

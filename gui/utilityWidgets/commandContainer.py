@@ -12,7 +12,7 @@ class CommandContainer(QtWidgets.QFrame):
     """ Shared parent widget of all commands we can add to the command queue
     """
 
-    removeCommand = QtCore.Signal(QtWidgets.QWidget)
+    commandRemoved = QtCore.Signal(QtWidgets.QWidget)
 
     def __init__(self, commandType, *args, **kwargs):
         """ Initialises the widget with the supplied args
@@ -78,4 +78,4 @@ class CommandContainer(QtWidgets.QFrame):
         self.vBoxGlobal.addWidget(widgetToAdd)
 
     def onCommandRemoved(self):
-        self.removeCommand.emit(self)
+        self.commandRemoved.emit(self)

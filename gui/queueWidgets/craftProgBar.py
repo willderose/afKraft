@@ -168,7 +168,7 @@ class CraftProgBar(QtWidgets.QFrame):
         """
 
         self.labProgressTitle.setText(craftName or 'Unknown')
-        self.prbProgress.setMinimum(1)
+        self.prbProgress.setMinimum(0)
         self.prbProgress.setMaximum(craftAmount)
         self.totalCraftTime = totalCraftTime
         self.setRemainingCraftTime(totalCraftTime)

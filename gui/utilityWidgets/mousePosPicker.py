@@ -16,13 +16,13 @@ class MousePosPicker(QtWidgets.QPushButton):
     positionPicked = QtCore.Signal()
 
     # The text to display when a user has yet to pick a position
-    DEFAULT_TEXT = 'Pick "{}" button position'
+    DEFAULT_TEXT = 'Pick {} button position'
 
     # The text to display when in the process of picking a position
     PICKING_TEXT = 'Return or Escape to pick position'
 
     # The text to display when a user has picked a position
-    PICKED_TEXT = '"{}" button at {}'
+    PICKED_TEXT = '{} button at {}'
 
     def __init__(self, targetButtonText, *args, **kwargs):
         """ Set our default values and properly initialise our widget
@@ -44,6 +44,8 @@ class MousePosPicker(QtWidgets.QPushButton):
 
         self.setText(self.DEFAULT_TEXT.format(self._targetButtonText))
         self.setStyleSheet(afKraftResources.getStyleForWidget(self))
+        self.setFixedHeight(30)
+        self.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
 
     def _setupConnections(self):
         """ Connect this widget and its subwidgets' signals to their slots
@@ -78,4 +80,3 @@ class MousePosPicker(QtWidgets.QPushButton):
         self.setText(self.PICKED_TEXT.format(self._targetButtonText, currentCursorPosition))
         self.pickedCursorPosition = currentCursorPosition
         self.positionPicked.emit()
-

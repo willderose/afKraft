@@ -7,7 +7,7 @@ from PySide6 import QtWidgets
 
 import afKraftResources
 
-from gui.widgets import macroOptions
+from gui.utilityWidgets import genericInputOptions
 
 
 class MacroListOptions(QtWidgets.QGroupBox):
@@ -65,9 +65,9 @@ class MacroListOptions(QtWidgets.QGroupBox):
         """ Add a macro options picker to the list
         """
 
-        newKeybindMacro = macroOptions.MacroOptions(parent=self)
-        self.vBoxGlobal.addWidget(newKeybindMacro)
-        self._macroWidgets.append(newKeybindMacro)
+        newInputWidget = genericInputOptions.GenericInputOptions(parent=self)
+        self.vBoxGlobal.insertWidget(len(self._macroWidgets), newInputWidget)
+        self._macroWidgets.append(newInputWidget)
 
     def runMacros(self):
         """ Build the series of macro keybinds and times from our list of macro option widgets
