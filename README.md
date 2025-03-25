@@ -11,6 +11,10 @@ A couple of dependencies need to be installed for it to properly work, if you wi
   - Can be installed using `python -m pip install pyautogui` from a windows command prompt
 
 # How to use
+If you're launching this from a release:
+- Run the included afKraft.exe as administrator (it seems pyautogui requires it)
+
+If you're launching this from a cloned repo:
 From a Python terminal, run the afKraft.py file under the gui module:
 - `python {pathToRepo}/gui/afKraft.py`
 
