@@ -2,7 +2,10 @@
 # Created by willderose                                      #
 # -----------------------------------------------------------#
 
+import os
 import sys
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from PySide6 import QtCore
 from PySide6 import QtGui
