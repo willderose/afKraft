@@ -24,4 +24,6 @@ The "Keypress" command allows a user to set a generic input (mouse or keyboard) 
 
 Once the queue is built, set the location of the in-game Synthesize button (on the crafting window, bottom right), set a start delay, if desired, then Launch your queue with the "Launch Command(s)" button at the bottom.
 
+**MAKE SURE THE FINAL HANTASY XIV WINDOW HAS FOCUS FOR THIS UTILITY TO PROPERLY WORK**
+
 Still very much a WIP, so broken functionalities are to be expected.
