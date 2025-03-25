@@ -9,7 +9,7 @@ from PySide6 import QtGui
 from PySide6 import QtWidgets
 
 from gui.widgets import afKraftTitleBar
-from gui.widgets import globalOptions
+from gui.widgets import afKraftOptions
 from gui.widgets import commandQueue
 
 import afKraftResources
@@ -40,7 +40,7 @@ class AfCraftWindow(QtWidgets.QMainWindow):
         self.vBoxGlobal.setAlignment(self.pbLaunchCommand, QtCore.Qt.AlignRight)
         self.vBoxGlobal.setSpacing(8)
 
-        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint | QtCore.Qt.FramelessWindowHint)
+        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)# | QtCore.Qt.FramelessWindowHint)
         self.setStyleSheet(afKraftResources.getStyleForWidget(self))
         self.setMinimumSize(550, 850)
 
@@ -61,7 +61,7 @@ class AfCraftWindow(QtWidgets.QMainWindow):
 
         self.wTitleBar = afKraftTitleBar.AfKraftTitleBar(parent=self)
 
-        self.afCraftOptions = globalOptions.GlobalOptions(parent=self)
+        self.afCraftOptions = afKraftOptions.AfKraftOptions(parent=self)
 
         self.commandQueue = commandQueue.CommandQueue(parent=self)
 
@@ -70,8 +70,8 @@ class AfCraftWindow(QtWidgets.QMainWindow):
 
         self.vBoxGlobal = QtWidgets.QVBoxLayout(self.wCentralWidget)
         self.vBoxGlobal.addWidget(self.wTitleBar)
-        self.vBoxGlobal.addWidget(self.afCraftOptions)
         self.vBoxGlobal.addWidget(self.commandQueue)
+        self.vBoxGlobal.addWidget(self.afCraftOptions)
         self.vBoxGlobal.addWidget(self.pbLaunchCommand)
 
         self.setObjectName('afCraftWindow')
@@ -84,7 +84,7 @@ class AfCraftWindow(QtWidgets.QMainWindow):
         """
 
         queueIsValid = all([
-            self.commandQueue.commandQueueWidgets,
+            # self.commandQueue.commandQueueWidgets,
             self.afCraftOptions.synthButtonPosition()
         ])
         self.pbLaunchCommand.setEnabled(queueIsValid)
