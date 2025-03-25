@@ -1,0 +1,22 @@
+QCheckBox {
+    color: rgb(235, 219, 187);
+}
+
+QCheckBox::indicator {
+    width: 14px;
+    height: 15px;
+    border: 4px ridge rgb(55, 55, 55);
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:checked {
+    background-color: qlineargradient(y1: 0, y2: 1, stop: 0 rgb(255, 255, 113), stop: 0.25 rgb(255, 195, 33),stop: 0.75 rgb(255, 195, 33), stop: 1 rgb(255, 255, 113));
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: qlineargradient(y1: 0, y2: 1, stop: 0 rgb(23, 23, 23), stop: 0.75 rgb(100, 95, 90), stop: 1 rgb(40, 40, 40));
+}
+
+QCheckBox::indicator:hover {
+    border-color: rgb(65, 65, 65);
+}
