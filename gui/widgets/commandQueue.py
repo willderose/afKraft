@@ -26,8 +26,8 @@ class CommandQueue(afKraftSection.AfKraftSection):
 
         self._setupConnections()
 
-        self.addCraft()
-        self.addKeypress()
+        # self.addCraft()
+        # self.addKeypress()
 
     def _setupAppearance(self):
         """ Visually customize this widget and it's subwidgets
