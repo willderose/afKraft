@@ -12,7 +12,6 @@ from gui.utilityWidgets import mousePosPicker
 from gui.utilityWidgets import keybindSelector
 
 import core.inputTypes
-import afKraftResources.afKraft
 
 
 class GenericInputOptions(QtWidgets.QWidget):
