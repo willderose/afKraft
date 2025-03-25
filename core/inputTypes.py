@@ -6,8 +6,11 @@ import time
 import pyautogui
 
 
-def runKeybind(qKeySequence):
-    if not qKeySequence.count():
+def runKeybind(sequenceStr: str):
+    """ Run a virtual keybind from a series of keys
+    """
+
+    if not sequenceStr:
         return
 
     modifierCorrespondence = {
@@ -16,16 +19,16 @@ def runKeybind(qKeySequence):
         'Shift': 'shiftleft'
     }
 
-    pyautoKeys = [modifierCorrespondence.get(key, key).lower() for key in qKeySequence.toString().split('+')]
+    pyautoKeys = [modifierCorrespondence.get(key, key).lower() for key in sequenceStr.split('+')]
     pyautogui.hotkey(*pyautoKeys, interval=0.05)
-
-
-def moveMouseToSynthButton(mousePos):
-    pyautogui.moveTo(mousePos)
 
 
 def mouseClick():
     time.sleep(0.5)
     pyautogui.leftClick()
     pyautogui.mouseUp()
-    time.sleep(1.15)
+    time.sleep(1.5)
+
+
+def moveMouseToSynthButton(mousePos):
+    pyautogui.moveTo(mousePos)
